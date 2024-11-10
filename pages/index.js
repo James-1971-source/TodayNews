@@ -57,11 +57,13 @@ function Card({ title, content, author, bgColor, link }) {
 
   return (
     <CardContainer href={link} target="_blank" bgColor={bgColor}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <SourceDate>{author}</SourceDate>
+        <SourceDate>{new Date().toISOString().split('T')[0]}</SourceDate>
+      </div>
       <div className="pin" style={{ backgroundColor: pinColor, width: '10px', height: '10px', borderRadius: '50%', position: 'absolute', top: '8px', left: '8px' }}></div>
       <h2 style={{ fontSize: '1em' }}>{title}</h2>
       <p style={{ fontSize: '0.9em' }}>{content}</p>
-      <SourceDate>{author}</SourceDate>
-      <SourceDate>{new Date().toISOString().split('T')[0]}</SourceDate>
     </CardContainer>
   );
 }
